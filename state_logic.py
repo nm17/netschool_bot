@@ -13,13 +13,13 @@ class StartUpMachine(StateMachine):
     entering_oo = State("Entering OO")
     entering_school = State("Entering school")
 
-    reset = not_started.from_(entering_login, entering_city, entering_oo, entering_school)
+    reset = not_started.from_(entering_login, entering_city, entering_oo, entering_school, not_started)
     sent_start = entering_login.from_(not_started)
     sent_login = entering_city.from_(entering_login)
     sent_city = entering_oo.from_(entering_city)
     sent_oo = entering_school.from_(entering_oo)
 
-    cycle = sent_start | sent_login | sent_city | sent_oo
+    cycle = sent_start | sent_login | sent_oo | sent_city
 
     @staticmethod
     def from_user_id(user_id):

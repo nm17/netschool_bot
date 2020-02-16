@@ -250,3 +250,4 @@ pip-selfcheck.json
 # End of https://www.gitignore.io/api/linux,python,windows,pycharm+all
 
 db.json
+kutana.log
