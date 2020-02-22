@@ -19,7 +19,7 @@ async def asd(msg: Message, ctx: Context):
         db.table("login_data").update(
             set_("school", msg.text), q.user_id == ctx.user_uid
         )
-        await ctx.reply("Done")
+        await ctx.reply("Готово! Теперь вы можете написать /dnevnik для того чтобы посмотреть дневник")
         m.reset()
     elif m.current_state == StartUpMachine.entering_login:
         q = Query()
