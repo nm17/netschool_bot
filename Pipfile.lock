@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "e64d8d0a10638a845c0a60b55d5314781395f16da9a4487fffd85636393b7549"
+            "sha256": "fec5a140dea66d6dd44c20369dc621d7b519c6a9cfa0652b8fbbd8303b77743d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -74,6 +74,14 @@
             ],
             "markers": "python_version < '3.7'",
             "version": "==2.4"
+        },
+        "convertapi": {
+            "hashes": [
+                "sha256:2fd0982015cb09d019115cde51caf108b96abba1cd2e481e1ba4e1575c936b88",
+                "sha256:31768b6dbfdb02a7a37c091e01ada98a1c1e7eb2d8563a4acb226024507c42fd"
+            ],
+            "index": "pypi",
+            "version": "==1.1.1"
         },
         "cycler": {
             "hashes": [
@@ -381,6 +389,13 @@
                 "sha256:b02c06db6cf09c12dd25137e563b31700d3b80fcc4ad23abb7a315f2789819be"
             ],
             "version": "==2019.3"
+        },
+        "requests": {
+            "hashes": [
+                "sha256:43999036bfa82904b6af1d99e4882b560e5e2c68e5c4b0aa03b655f3d7d73fee",
+                "sha256:b3f43d496c6daba4493e7c431722aeb7dbc6288f52a6e04e7b6023b0247817e6"
+            ],
+            "version": "==2.23.0"
         },
         "rfc3986": {
             "hashes": [

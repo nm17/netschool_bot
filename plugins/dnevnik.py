@@ -1,10 +1,12 @@
+from io import BytesIO, StringIO
+
 import dateutil
 from kutana import Plugin, Message, Context
 from netschoolapi import NetSchoolAPI
 from pandas.plotting import table
 from tinydb import Query
 import matplotlib.pyplot as plt
-import parse
+import convertapi
 
 from db import db
 
@@ -21,6 +23,14 @@ def get_img(df):
 
     plt.savefig('mytable.png')
 
+weektorus = {
+    5: "субботу",
+    4: "пятницу",
+    3: "четверг",
+    2: "среду",
+    1: "вторник",
+    0: "понедельник"
+}
 
 @plugin.on_commands(commands=["dnevnik"])
 async def dnevnik(msg: Message, ctx: Context):
@@ -52,4 +62,9 @@ async def dnevnik(msg: Message, ctx: Context):
             room = [int(s) for s in lesson["room"].split("/") if s.isdigit()][0]
             df = df.append({"Date": date, "Homework": hw, "Subject": subject, "Mark": mark, "Room": room}, ignore_index=True)
     df = df.set_index("Date")
-    print(df.info())
+    for name, group in df.groupby("Date"):
+        msg_ = "Уроки на {}\n".format(weektorus[name])
+        for row in group.iterrows():
+            data = row[1]
+            msg_ += "{} / {} - {}\n".format(data["Subject"], int(data["Room"]), data["Homework"])
+        await ctx.reply(msg_)
