@@ -56,9 +56,6 @@ async def asd(msg: Message, ctx: Context):
             )
         )
         m.cycle()
-    await ctx.reply(m.model.state)
-    q = Query()
-    await ctx.reply(str(db.table("login_data").search(q.user_id == ctx.user_uid)))
     m.save()
 
 
